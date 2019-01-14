@@ -1,0 +1,112 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "PK4EEXA626.com.meitu.mtmv",
+        "paths": [
+          "/meipai",
+          "/meipai/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.makeup",
+        "paths": [
+          "/makeup",
+          "/makeup/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.mtxx",
+        "paths": [
+          "/xiuxiu",
+          "/xiuxiu/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.wheecam",
+        "paths": [
+          "/selfiecity",
+          "/selfiecity/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.myxj",
+        "paths": [
+          "/myxj",
+          "/myxj/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.diy",
+        "paths": [
+          "/meitudiy",
+          "/meitudiy/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.OverseaMV",
+        "paths": [
+          "/oversea-mv",
+          "/oversea-mv/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.party",
+        "paths": [
+          "/partynow",
+          "/partynow/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.WIDE",
+        "paths": [
+          "/wide",
+          "/wide/*"
+        ]
+      },
+      {
+        "appID": "4W7Y6S5CA2.com.commsource.BeautyPlus",
+        "paths": [
+          "/beautyplus",
+          "/beautyplus/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.fasttransfer",
+        "paths": [
+          "/mtft",
+          "/mtft/*"
+        ]
+      },
+      {
+        "appID": "LV2M6WD53H.bec.meitu.wallet",
+        "paths": [
+          "/bec",
+          "/bec/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.youyanvideo",
+        "paths": [
+          "/mtyy",
+          "/mtyy/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.wheear",
+        "paths": [
+          "/wheear",
+          "/wheear/*"
+        ]
+      },
+      {
+        "appID": "PK4EEXA626.com.meitu.oxygen",
+        "paths": [
+          "/oxygen",
+          "/oxygen/*"
+        ]
+      }
+    ]
+  }
+}
