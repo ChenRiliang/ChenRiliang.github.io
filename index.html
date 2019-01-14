@@ -1,10 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    if (location.hash) {
+        if (location.hash.length > 2) {
+            location.href = location.hash.substring(1);
+        }
+    }
+</script>
 <head>
     <meta charset="UTF-8">
-    <title>universal link config test</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"
+          name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xiuxiu universal link</title>
+    <style>
+        html,
+        body {
+            min-height: 80%;
+        }
+
+        .container {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        h2 {
+            text-align: center;
+
+        }
+
+        .container button {
+            min-width: 150px;
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 6px;
+            margin-top: 20px;
+            color: cornflowerblue;
+        }
+
+        .container a {
+            display: block;
+            margin: 20px auto;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 8px;
+        }
+
+        a.safari {
+            border: 1px solid bisque;
+            border-radius: 4px;
+        }
+    </style>
 </head>
+
 <body>
-<h1>测测</h1>
+
+<h2>Universal Links Demo</h2>
+<div class="container">
+    <p>域名：https://app.meitu.com/xiuxiu/applinks/index.html </p>
+    <!--<p>scheme: meituxiuxiu%3A%2F%2Fcommunity%2Ffeed%3Fid%3D6456400872657912833</p>-->
+
+    <a href="https://github.com/ChenRiliang/xiuxiu"></a>
+    <button class="j-detail">详情页</button>
+    <button class="j-topic">话题页</button>
+    <button class="j-collect">收藏页</button>
+    <button class="j-tag">标签页</button>
+    <button class="j-live">实拍页</button>
+    <button class="j-personal">个人页</button>
+
+
+</div>
+
 </body>
+<script src="//h5.meitu.com/js/console.min.js"></script>
+<script>
+    const ua = is();
+    const linkpre = `https://app.meitu.com/xiuxiu/applinks/index.html?redirectURI=${encodeURIComponent('http://a.app.qq.com/o/simple.jsp?pkgname=com.mt.mtxx.mtxx&ckey=CK1320781983564')}`;
+
+    const detailLink = `${linkpre}&scheme=${encodeURIComponent('meituxiuxiu://community/feed?id=6488297462121104385')}`;
+    const topiclLink = `${linkpre}&scheme=${encodeURIComponent(`meituxiuxiu://community/topic?name=${encodeURIComponent('啦啦啦')}`)}`;
+    const collectlLink = `${linkpre}&scheme=${encodeURIComponent('meituxiuxiu://community/favorites?id=6444220874688758787&uid=1600358998&is_private=0')}`;
+    const tagLink = `${linkpre}&scheme=${encodeURIComponent('meituxiuxiu://community/tag?id=6455255403599692802')}`;
+    const livelLink = `${linkpre}&scheme=${encodeURIComponent('meituxiuxiu://community/realShoot')}`;
+    const personallLink = `${linkpre}&scheme=${encodeURIComponent('meituxiuxiu://community/personal/homepage?id=1600358998')}`;
+
+    const $el = {
+        detail: document.querySelector('.j-detail'),
+        topic: document.querySelector('.j-topic'),
+        collect: document.querySelector('.j-collect'),
+        tag: document.querySelector('.j-tag'),
+        live: document.querySelector('.j-live'),
+        personal: document.querySelector('.j-personal'),
+    };
+    const els = ['detail', 'topic', 'collect', 'tag', 'live', 'personal'];
+    const links = [detailLink, topiclLink, collectlLink, tagLink, livelLink, personallLink];
+
+    console.log('ua:', ua);
+
+    console.log('location.hash:', location.hash);
+
+
+    els.forEach((el, i) => {
+
+        $el[el].onclick = () => {
+
+            if (ua.WeChat) {
+                alert('location.href~')
+                console.log('location.hash:', location.href);
+                location.href = location.href + `#${links[i]}`
+
+            } else {
+                console.log('detail');
+                location.href = links[i];
+            }
+        }
+    });
+
+
+    function is() {
+        const ua = window.navigator.userAgent.toLowerCase();
+
+        return {
+            iOS: /(iPhone|iPad|iPod|iOS)/gi.test(ua),
+            Android: /android|adr/gi.test(ua),
+            Mobile: /(iPhone|iPad|iPod|iOS|Android|adr|Windows Phone|SymbianOS)/gi.test(ua),
+            Weibo: /(weibo)/gi.test(ua),
+            WeChat: ua.match(/MicroMessenger/gi) == 'micromessenger' ? true : false,
+            QQ: /qq\//gi.test(ua),
+            Qzone: ua.indexOf('qzone/') !== -1,
+            Meitu: /(com.meitu|bec.meitu|bec.wallet)/gi.test(ua),
+            Meipai: /meipaimv|meipai|com.meitu.mtmv/ig.test(ua),
+            Meipu: /com.meitu.meipu/ig.test(ua),
+            Xiuxiu: /(com.meitu.mtxx)/gi.test(ua),
+            // ios: com.meitu.myxj, android: com.meitu.meiyancamera
+            Meiyan: /(com.meitu.myxj|com.meitu.meiyancamera)/gi.test(ua),
+            Makeup: /com.meitu.makeup/ig.test(ua),
+            Selfiecity: /com.meitu.wheecam/ig.test(ua),
+            Beautyme: /com.meitu.zhi.beauty/ig.test(ua),
+            Shanliao: /(com.meitu.shanliao|com.meitu.testwheetalk)/ig.test(ua),
+            Twitter: /Twitter/ig.test(ua),
+            Facebook: /fbav/ig.test(ua),
+            Line: /line\//ig.test(ua),
+            Youyan: /com.meitu.youyanvideo/ig.test(ua),
+            Yumyum: /com.meitu.yumyum/ig.test(ua),
+        };
+    }
+</script>
+
 </html>
