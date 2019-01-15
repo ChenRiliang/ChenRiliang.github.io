@@ -115,8 +115,9 @@
             if (ua.WeChat) {
                 alert('location.href~')
                 console.log('location.hash:', location.href);
-                location.href = location.href + `#${links[i]}`
-
+                // location.href = location.href + `#${links[i]}`
+                const link = location.href + `#${links[i]}`;
+                console.log('link:', link);
             } else {
                 console.log('detail');
                 location.href = links[i];
