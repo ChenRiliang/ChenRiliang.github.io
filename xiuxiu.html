@@ -79,6 +79,8 @@ if(!f)return b.build();e=e.path.substring(f.length).replace(/[^\/]*$/,"").replac
 e)){if(!k(b[e])){if(b[e]!==g[e])return!1}else if(!E(b[e],g[e]))return!1;a[e]=!0}for(e in g)if(n.call(g,e)&&!a[e])return!1;return!0};g.duplicateQueryParameters=function(a){this._parts.duplicateQueryParameters=!!a;return this};g.escapeQuerySpace=function(a){this._parts.escapeQuerySpace=!!a;return this};return d});
     </script>
     <script>
+
+        let url = `https://app.meitu.com/xiuxiu/applinks/index.html?redirectURI=http%3A%2F%2Fa.app.qq.com%2Fo%2Fsimple.jsp%3Fpkgname%3Dcom.mt.mtxx.mtxx%26ckey%3DCK1320781983564&scheme=meituxiuxiu%3A%2F%2Fcommunity%2Ffeed%3Fid%3D6488297462121104385`;
         var getQueryString = function(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg);
