@@ -108,11 +108,8 @@
 
     console.log('location.hash:', location.hash);
 
-
     els.forEach((el, i) => {
-
         $el[el].onclick = () => {
-
             if (ua.WeChat) {
                 alert('location.href~')
                 console.log('location.hash:', location.href);
@@ -127,7 +124,6 @@
             }
         }
     });
-
 
     function is() {
         const ua = window.navigator.userAgent.toLowerCase();
