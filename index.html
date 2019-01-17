@@ -46,7 +46,7 @@
             display: block;
             margin: 20px auto;
             height: 80px;
-            width: 80px
+            width: 80px;
             line-height: 80px;
             border-radius: 8px;
         }
@@ -62,20 +62,13 @@
 
 <h2>Universal Links Demo</h2>
 <div class="container">
-    <p>域名：https://app.meitu.com/xiuxiu/applinks/index.html </p>
-    <!--<p>scheme: meituxiuxiu%3A%2F%2Fcommunity%2Ffeed%3Fid%3D6456400872657912833</p>-->
-
-    <a href="https://chenriliang.github.io/xiuxiu">测试测试</a>
-    <a href="https://chenriliang.github.io/xiuxiu">测试测试</a>
-    <a href="https://chenriliang.github.io/xiuxiu">测试测试</a>
+    <p class="j-link"></p>
     <button class="j-detail">详情页</button>
     <button class="j-topic">话题页</button>
     <button class="j-collect">收藏页</button>
     <button class="j-tag">标签页</button>
     <button class="j-live">实拍页</button>
     <button class="j-personal">个人页</button>
-
-
 </div>
 
 </body>
@@ -83,8 +76,8 @@
 <script>
     const ua = is();
     // const linkpre = `https://app.meitu.com/xiuxiu/applinks/index.html?redirectURI=${encodeURIComponent('http://a.app.qq.com/o/simple.jsp?pkgname=com.mt.mtxx.mtxx&ckey=CK1320781983564')}`;
-    // const linkpre = `https://chenriliang.github.io/xiuxiu.html?redirectURI=${encodeURIComponent('http://a.app.qq.com/o/simple.jsp?pkgname=com.mt.mtxx.mtxx&ckey=CK1320781983564')}`;
-    const linkpre = `/xiuxiu.html?redirectURI=${encodeURIComponent('http://a.app.qq.com/o/simple.jsp?pkgname=com.mt.mtxx.mtxx&ckey=CK1320781983564')}`;
+    const linkpre = `https://chenriliang.github.io/xiuxiu.html?redirectURI=${encodeURIComponent('http://a.app.qq.com/o/simple.jsp?pkgname=com.mt.mtxx.mtxx&ckey=CK1320781983564')}`;
+    // const linkpre = `/xiuxiu.html?redirectURI=${encodeURIComponent('http://a.app.qq.com/o/simple.jsp?pkgname=com.mt.mtxx.mtxx&ckey=CK1320781983564')}`;
 
     const detailLink = `${linkpre}&scheme=${encodeURIComponent('meituxiuxiu://community/feed?id=6488297462121104385')}`;
     const topiclLink = `${linkpre}&scheme=${encodeURIComponent(`meituxiuxiu://community/topic?name=${encodeURIComponent('啦啦啦')}`)}`;
@@ -101,6 +94,7 @@
         live: document.querySelector('.j-live'),
         personal: document.querySelector('.j-personal'),
     };
+
     const els = ['detail', 'topic', 'collect', 'tag', 'live', 'personal'];
     const links = [detailLink, topiclLink, collectlLink, tagLink, livelLink, personallLink];
 
@@ -111,13 +105,11 @@
     els.forEach((el, i) => {
         $el[el].onclick = () => {
             if (ua.WeChat) {
-                alert('location.href~')
                 console.log('location.hash:', location.href);
                 // location.href = location.href + `#${links[i]}`
                 const link = location.href + `#${links[i]}`;
                 console.log('link:', link);
             } else {
-                console.log('detail');
                 const link = links[i];
                 console.log('link:', link);
                 location.href = links[i];
